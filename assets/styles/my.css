@@ -1,0 +1,19 @@
+.card{
+    border:1px solid #31124b ;
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px(0,0,0,0.1);
+    background: linear-gradient(to top right, #fa9e1b, #8d4fff);
+}
+.card-header{
+    background-color: #31124b;
+    color:white;
+    border-radius: 15px 15px 0 0 ;
+}
+.form-label{
+    font-weight: bold;
+    color:white;
+}
+.btn-primary{
+    background-color: #31124b;
+    border-color: #31124b;
+}
