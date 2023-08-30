@@ -1,3 +1,15 @@
+<?php
+
+define("APPURL","http://localhost/TravelPhpMysql" );
+
+
+define("ASSETSIMAGE", "http://localhost/TravelPhpMysql/assets/images")
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +18,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travelix Project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="assets/styles/bootstrap4/bootstrap.min.css">
-<link href="assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="assets/plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" type="text/css" href="assets/styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="assets/styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/styles/bootstrap4/bootstrap.min.css">
+<link href="<?php echo APPURL;?>/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/styles/responsive.css">
 </head>
 
 <body>
@@ -56,7 +68,7 @@
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="assets/images/logo.png" alt="">travelix</a></div>
+							<div class="logo"><a href="#"><img src="<?php echo APPURL;?>/assets/images/logo.png" alt="">travelix</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
@@ -108,7 +120,7 @@
 	<div class="menu trans_500">
 		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
 			<div class="menu_close_container"><div class="menu_close"></div></div>
-			<div class="logo menu_logo"><a href="#"><img src="assets/images/logo.png" alt=""></a></div>
+			<div class="logo menu_logo"><a href="#"><img src="<?php echo APPURL;?>/assets/images/logo.png" alt=""></a></div>
 			<ul>
 				<li class="menu_item"><a href="#">home</a></li>
 				<li class="menu_item"><a href="about.html">about us</a></li>

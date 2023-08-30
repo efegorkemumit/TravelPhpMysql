@@ -17,3 +17,12 @@
     background-color: #31124b;
     border-color: #31124b;
 }
+.page-banner-register
+{
+background-image: url('../images/contact.png');
+
+}
+
+.mb-50{
+    margin-bottom: 50px;
+}
