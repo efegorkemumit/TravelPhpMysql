@@ -1,7 +1,7 @@
 <?php require "../includes/header.php"?>
 <?php require "../config/config.php"?>
 
-<?php
+<?php 
 
 if(isset($_SESSION["username"])) {
     header("location: ".APPURL."");
@@ -10,23 +10,42 @@ if(isset($_SESSION["username"])) {
 
 if(isset($_POST['submit'])){
 
-    if(empty($_POST['username']) OR empty($_POST['email']) OR empty($_POST['password'])){
+    if(empty($_POST['email']) OR empty($_POST['password'])){
         echo "<script>alert('some inputs are empty')</script>";
     }
     else{
-        $username= $_POST['username'];
-        $email= $_POST['email'];
-        $password=  password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-        $insert = $conn->prepare("INSERT INTO users (username, email, mypassword) VALUES (:username, :email, :mypassword)");
 
-        $insert->execute([
-            ":username"=> $username,
-            ":email"=> $email,
-            ":mypassword"=> $password,
-        ]);
 
-        header("location: login.php");
+        $login= $conn->query("SELECT * FROM users WHERE email='$email'");
+        $login ->execute();
+
+        $fetch = $login->fetch(PDO::FETCH_ASSOC);
+
+        if($login->rowCount()> 0)
+        {
+            if(password_verify($password, $fetch['mypassword']))
+            {
+                $_SESSION['username']= $fetch['username'];
+                $_SESSION['user_id']= $fetch['id'];
+                header("location: ".APPURL."");
+                echo "<script>alert('giriş ok')</script>";
+
+
+
+            }
+            else
+            {
+                echo "<script>1alert('Email or password wrong')</script>";
+            }
+
+        }
+        else
+        {
+            echo "<script>2alert('Email or password wrong')</script>";
+        }
 
 
 
@@ -36,7 +55,9 @@ if(isset($_POST['submit'])){
 
 }
 
+
 ?>
+
 
 <link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/styles/contact_styles.css">
 <link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/styles/contact_responsive.css">
@@ -52,31 +73,27 @@ if(isset($_POST['submit'])){
     
 
 
-    <div class="container mt-5 mb-50">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center">Register</h3>
+                        <h3 class="text-center">Login</h3>
                     </div>
                     <div class="card-body">
-                        <form name="register" method="POST" action="register.php" >
+                        <form action="login.php" method="POST">
                             <div class="mb-3">
-                                <label for="username" class="form-label"> username</label>
-                                <input type="text" name="username" class="form-control" id="username" placeholder="Username">
+                                <label for="username" class="form-label"> Email</label>
+                                <input type="text" name="email" class="form-control" id="email" placeholder="email">
 
                             </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label"> Email</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
-
-                            </div>
+                        
                             <div class="mb-3">
                                 <label for="password" class="form-label"> Password</label>
                                 <input type="password" name="password" class="form-control" id="password" placeholder="password">
 
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary"> Register</button>
+                            <button  name="submit" type="submit" class="btn btn-primary"> Register</button>
 
 
 
@@ -90,6 +107,10 @@ if(isset($_POST['submit'])){
 
         </div>
 
+    
+
+
+    </div>
     
 
 

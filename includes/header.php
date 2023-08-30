@@ -1,6 +1,6 @@
 <?php
 
-define("APPURL","http://localhost/TravelPhpMysql" );
+define("APPURL","http://localhost/TravelPhpMysql");
 
 
 define("ASSETSIMAGE", "http://localhost/TravelPhpMysql/assets/images")
