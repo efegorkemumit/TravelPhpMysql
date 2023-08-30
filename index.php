@@ -248,11 +248,11 @@ if($result->rowCount()>0){
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="text" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="text"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
