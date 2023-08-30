@@ -4,7 +4,8 @@ session_start();
 define("APPURL","http://localhost/TravelPhpMysql");
 
 
-define("ASSETSIMAGE", "http://localhost/TravelPhpMysql/assets/images")
+define("ASSETSIMAGE", "http://localhost/TravelPhpMysql/assets/images");
+define("DBIMAGE", "http://localhost/TravelPhpMysql/assets/images");
 
 ?>
 

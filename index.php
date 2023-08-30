@@ -1,4 +1,14 @@
 <?php require "includes/header.php"?>
+<?php require "config/config.php"?>
+
+
+<?php
+$sql= "SELECT * FROM slider";
+$result= $conn->query($sql);
+
+
+?>
+
 	<!-- Home -->
 
 	<div class="home">
@@ -9,46 +19,32 @@
 			
 			<div class="owl-carousel owl-theme home_slider">
 
-				<!-- Slider Item -->
+
+<?php 
+if($result->rowCount()>0){
+	while($row = $result->fetch(PDO::FETCH_ASSOC)){
+		$image = $row['image'];
+		$title_1 = $row['title_1'];
+		$title_2 = $row['title_2'];
+		$button_url = $row['button_url'];
+		$button_text = $row['button_text'];
+		?>
+
 				<div class="owl-item home_slider_item">
-					<!-- Image by https://unsplash.com/@anikindimitry -->
-					<div class="home_slider_background" style="background-image:url(assets/images/home_slider.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(<?php echo DBIMAGE;?>/<?php echo $image;?>)"></div>
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>discover</h1>
-							<h1>the world</h1>
-							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
+							<h1><?php echo $title_1;?></h1>
+							<h1><?php echo $title_2;?></h1>
+							<div class="button home_slider_button"><div class="button_bcg"></div><a href="<?php echo $button_url;?>"><?php echo $button_text;?><span></span><span></span><span></span></a></div>
 						</div>
 					</div>
 				</div>
-
-				<!-- Slider Item -->
-				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url(assets/images/home_slider.jpg)"></div>
-
-					<div class="home_slider_content text-center">
-						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>discover</h1>
-							<h1>the world</h1>
-							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slider Item -->
-				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url(assets/images/home_slider.jpg)"></div>
-
-					<div class="home_slider_content text-center">
-						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>discover</h1>
-							<h1>the world</h1>
-							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
-						</div>
-					</div>
-				</div>
-
+				<?php
+			}
+		}
+		?>
 			</div>
 			
 			<!-- Home Slider Nav - Prev -->
@@ -91,9 +87,17 @@
 
 			<div class="home_slider_dots">
 				<ul id="home_slider_custom_dots" class="home_slider_custom_dots">
-					<li class="home_slider_custom_dot active"><div></div>01.</li>
-					<li class="home_slider_custom_dot"><div></div>02.</li>
-					<li class="home_slider_custom_dot"><div></div>03.</li>
+					<?php 
+					for($i=1; $i<=$result->rowCount(); $i++){
+					 $dotClass = ($i ===1) ?  'active' :'';
+					?>
+					
+				
+				<li class="home_slider_custom_dot <?php echo $dotClass;?>"><div></div><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?>.</li>
+				<?php
+					}
+					?>
+
 				</ul>
 			</div>
 			
