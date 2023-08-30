@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 define("APPURL","http://localhost/TravelPhpMysql");
 
 
@@ -31,8 +32,6 @@ define("ASSETSIMAGE", "http://localhost/TravelPhpMysql/assets/images")
 
 <div class="super_container">
 	
-	<!-- Header -->
-
 	<header class="header">
 
 		<!-- Top Bar -->
@@ -53,9 +52,19 @@ define("ASSETSIMAGE", "http://localhost/TravelPhpMysql/assets/images")
 							</ul>
 						</div>
 						<div class="user_box ml-auto">
-							<div class="user_box_login user_box_link"><a href="#">login</a></div>
-							<div class="user_box_register user_box_link"><a href="#">register</a></div>
+
+						<?php if(isset($_SESSION['username'])): ?>
+							<div class="user_box_login user_box_link"><a href="#"><?php echo $_SESSION['username']; ?></a></div>
+							<div class="user_box_login user_box_link"><a href="#">account</a></div>
+							<div class="user_box_login user_box_link"><a href="<?php echo APPURL;?>/auth/logout.php">logout</a></div>
+
+						<?php else: ?>
+							<div class="user_box_login user_box_link"><a href="<?php echo APPURL;?>/auth/login.php">login</a></div>
+							<div class="user_box_login user_box_link"><a href="<?php echo APPURL;?>/auth/register.php">register</a></div>
+
+						<?php endif; ?>
 						</div>
+						
 					</div>
 				</div>
 			</div>		

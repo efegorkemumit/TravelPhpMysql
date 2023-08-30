@@ -4,7 +4,7 @@
 <?php 
 
 if(isset($_SESSION["username"])) {
-    header("location: ".APPURL."");
+    echo "<script>window.location.href='".APPURL."';</script>";
   }
 
 
@@ -30,9 +30,7 @@ if(isset($_POST['submit'])){
             {
                 $_SESSION['username']= $fetch['username'];
                 $_SESSION['user_id']= $fetch['id'];
-                header("location: ".APPURL."");
-                echo "<script>alert('giriş ok')</script>";
-
+                echo "<script>window.location.href='".APPURL."';</script>";
 
 
             }

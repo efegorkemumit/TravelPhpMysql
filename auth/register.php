@@ -4,7 +4,7 @@
 <?php
 
 if(isset($_SESSION["username"])) {
-    header("location: ".APPURL."");
+    echo "<script>window.location.href='".APPURL."';</script>";
   }
 
 
@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
             ":mypassword"=> $password,
         ]);
 
-        header("location: login.php");
+        echo "<script>window.location.href='".APPURL."/auth/login.php';</script>";
 
 
 
