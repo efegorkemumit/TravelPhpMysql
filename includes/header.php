@@ -25,8 +25,9 @@ define("DBIMAGE", "http://localhost/TravelPhpMysql/assets/images");
 <link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/styles/main_styles.css">
+
 <link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/styles/my.css">
 </head>
 
 <body>
@@ -78,12 +79,12 @@ define("DBIMAGE", "http://localhost/TravelPhpMysql/assets/images");
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="<?php echo APPURL;?>/assets/images/logo.png" alt="">travelix</a></div>
+							<div class="logo"><a href="<?php echo APPURL;?>"><img src="<?php echo APPURL;?>/assets/images/logo.png" alt="">travelix</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="#">home</a></li>
-								<li class="main_nav_item"><a href="about.html">about us</a></li>
+								<li class="main_nav_item"><a href="<?php echo APPURL;?>">home</a></li>
+								<li class="main_nav_item"><a href="<?php echo APPURL;?>/about-us.php">about us</a></li>
 								<li class="main_nav_item"><a href="offers.html">offers</a></li>
 								<li class="main_nav_item"><a href="blog.html">news</a></li>
 								<li class="main_nav_item"><a href="contact.html">contact</a></li>

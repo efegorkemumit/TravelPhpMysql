@@ -1,4 +1,5 @@
 <?php require "includes/header.php"?>
+<link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/styles/main_styles.css">
 <?php require "config/config.php"?>
 
 
@@ -134,7 +135,7 @@ if($result->rowCount()>0){
 					<div class="search_panel active">
 						<form action="#" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
-								<div>destination</div>
+								<div>hotels destination</div>
 								<input type="text" class="destination search_input" required="required">
 							</div>
 							<div class="search_item">
@@ -170,7 +171,7 @@ if($result->rowCount()>0){
 					<div class="search_panel">
 						<form action="#" id="search_form_2" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
-								<div>destination</div>
+								<div>car destination</div>
 								<input type="text" class="destination search_input" required="required">
 							</div>
 							<div class="search_item">
@@ -206,7 +207,7 @@ if($result->rowCount()>0){
 					<div class="search_panel">
 						<form action="#" id="search_form_3" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
-								<div>destination</div>
+								<div>flight destination</div>
 								<input type="text" class="destination search_input" required="required">
 							</div>
 							<div class="search_item">
@@ -240,18 +241,18 @@ if($result->rowCount()>0){
 					<!-- Search Panel -->
 
 					<div class="search_panel">
-						<form action="#" id="search_form_4" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+						<form action="search_resulst_tour.php" method="GET" id="search_form_4" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
-								<div>destination</div>
-								<input type="text" class="destination search_input" required="required">
+								<div>trips destination</div>
+								<input type="text" name="destination" class="destination search_input" required="required">
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="text" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="text"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -269,7 +270,7 @@ if($result->rowCount()>0){
 									<option>03</option>
 								</select>
 							</div>
-							<button class="button search_button">search<span></span><span></span><span></span></button>
+							<button type="submit" class="button search_button">search<span></span><span></span><span></span></button>
 						</form>
 					</div>
 
@@ -278,7 +279,7 @@ if($result->rowCount()>0){
 					<div class="search_panel">
 						<form action="#" id="search_form_5" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
-								<div>destination</div>
+								<div>cruise destination</div>
 								<input type="text" class="destination search_input" required="required">
 							</div>
 							<div class="search_item">
@@ -314,7 +315,7 @@ if($result->rowCount()>0){
 					<div class="search_panel">
 						<form action="#" id="search_form_6" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
-								<div>destination</div>
+								<div>act destination</div>
 								<input type="text" class="destination search_input" required="required">
 							</div>
 							<div class="search_item">
@@ -349,7 +350,6 @@ if($result->rowCount()>0){
 		</div>		
 	</div>
 
-	<!-- Intro -->
 	
 	<div class="intro">
 		<div class="container">
@@ -367,20 +367,35 @@ if($result->rowCount()>0){
 			</div>
 			<div class="row intro_items">
 
-				<!-- Intro Item -->
+				<?php 
 
-				<div class="col-lg-4 intro_col">
+				try{
+					$query3 = "SELECT * FROM trips";
+					$result3 = $conn-> query($query3);
+					while($row = $result3->fetch(PDO::FETCH_ASSOC)){
+				?>
+
+
+			
+
+				<div class="col-lg-4 intro_col mb-50">
 					<div class="intro_item">
 						<div class="intro_item_overlay"></div>
 						<!-- Image by https://unsplash.com/@dnevozhai -->
-						<div class="intro_item_background" style="background-image:url(assets/images/intro_1.jpg)"></div>
+						<div class="intro_item_background" style="background-image:url(<?php echo DBIMAGE;?>/<?php echo $row['image']; ?> )"></div>
 						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-							<div class="intro_date">May 25th - June 01st</div>
+						<div class="intro_date">
+    <?php
+    echo date("F jS", strtotime($row['checking']));
+    echo " - ";
+    echo date("F jS", strtotime($row['checkout']));
+    ?>
+</div>
 							<div class="button intro_button"><div class="button_bcg"></div><a href="#">see more<span></span><span></span><span></span></a></div>
 							<div class="intro_center text-center">
-								<h1>Mauritius</h1>
-								<div class="intro_price">From $1450</div>
-								<div class="rating rating_4">
+								<h1><?php echo $row['title']; ?> </h1>
+								<div class="intro_price">From $<?php echo $row['price']; ?> </div>
+								<div class="rating rating_<?php echo $row['score']; ?> ">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
@@ -391,56 +406,13 @@ if($result->rowCount()>0){
 						</div>
 					</div>
 				</div>
-
-				<!-- Intro Item -->
-
-				<div class="col-lg-4 intro_col">
-					<div class="intro_item">
-						<div class="intro_item_overlay"></div>
-						<!-- Image by https://unsplash.com/@hellolightbulb -->
-						<div class="intro_item_background" style="background-image:url(assets/images/intro_2.jpg)"></div>
-						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-							<div class="intro_date">May 25th - June 01st</div>
-							<div class="button intro_button"><div class="button_bcg"></div><a href="#">see more<span></span><span></span><span></span></a></div>
-							<div class="intro_center text-center">
-								<h1>Greece</h1>
-								<div class="intro_price">From $1450</div>
-								<div class="rating rating_4">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Intro Item -->
-
-				<div class="col-lg-4 intro_col">
-					<div class="intro_item">
-						<div class="intro_item_overlay"></div>
-						<!-- Image by https://unsplash.com/@willianjusten -->
-						<div class="intro_item_background" style="background-image:url(assets/images/intro_3.jpg)"></div>
-						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-							<div class="intro_date">May 25th - June 01st</div>
-							<div class="button intro_button"><div class="button_bcg"></div><a href="#">see more<span></span><span></span><span></span></a></div>
-							<div class="intro_center text-center">
-								<h1>Scotland</h1>
-								<div class="intro_price">From $1450</div>
-								<div class="rating rating_4">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php 
+					}
+				} catch(PDOException $e){
+					echo "Error : ".$e->getMessage();
+				}
+				
+				?>
 
 			</div>
 		</div>
