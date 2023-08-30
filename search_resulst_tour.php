@@ -93,7 +93,7 @@
 					
 					try{
 						$query= "SELECT * FROM trips WHERE destination=:destination AND 
-						(DATE(checking) >= :checkIn OR DATE(checkout) <=:checkOut) AND
+						(DATE(checking) <= :checkIn AND DATE(checkout) >=:checkOut) AND
 						adults= :adults AND children = :children";
 						$stmt = $conn->prepare($query);
 						$stmt->bindParam(':destination', $destination);
@@ -102,6 +102,26 @@
 						$stmt->bindParam(':adults', $adults);
 						$stmt->bindParam(':children', $children);
 						$stmt->execute();
+
+						if($stmt->rowCount()===0){
+					 ?>
+
+					<div class="offers_item rating_4">
+							<div class="row">
+								
+								<div class="col-lg-12">
+								<div class="alert alert-warning" role="alert">
+  No results
+</div>
+								
+							   </div>
+								
+							</div>
+						</div>
+
+
+					<?php
+						} else {
 
 						while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 							
@@ -140,7 +160,7 @@
 						</div>
 
 						<?php 
-					}
+						}}
 				} catch(PDOException $e){
 					echo "Error : ".$e->getMessage();
 				}

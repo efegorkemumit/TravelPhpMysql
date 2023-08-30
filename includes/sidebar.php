@@ -203,37 +203,37 @@
 							<!-- Search Panel -->
 
 							<div class="search_panel">
-								<form action="#" id="search_form_4" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-									<div class="search_item">
-										<div>destination</div>
-										<input type="text" class="destination search_input" required="required">
-									</div>
-									<div class="search_item">
-										<div>check in</div>
-										<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>check out</div>
-										<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>adults</div>
-										<select name="adults" id="adults_4" class="dropdown_item_select search_input">
-											<option>01</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
-									<div class="search_item">
-										<div>children</div>
-										<select name="children" id="children_4" class="dropdown_item_select search_input">
-											<option>0</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
-									<button class="button search_button">search<span></span><span></span><span></span></button>
-								</form>
+							<form action="search_resulst_tour.php" method="GET" id="search_form_4" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<div class="search_item">
+								<div>trips destination</div>
+								<input type="text" name="destination" class="destination search_input" required="required">
+							</div>
+							<div class="search_item">
+								<div>check in</div>
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>check out</div>
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>adults</div>
+								<select name="adults" id="adults_4" class="dropdown_item_select search_input">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+								</select>
+							</div>
+							<div class="search_item">
+								<div>children</div>
+								<select name="children" id="children_4" class="dropdown_item_select search_input">
+									<option>0</option>
+									<option>1</option>
+									<option>2</option>
+								</select>
+							</div>
+							<button type="submit" class="button search_button">search<span></span><span></span><span></span></button>
+						</form>
 							</div>
 
 							<!-- Search Panel -->

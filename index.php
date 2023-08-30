@@ -257,17 +257,17 @@ if($result->rowCount()>0){
 							<div class="search_item">
 								<div>adults</div>
 								<select name="adults" id="adults_4" class="dropdown_item_select search_input">
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
 								</select>
 							</div>
 							<div class="search_item">
 								<div>children</div>
 								<select name="children" id="children_4" class="dropdown_item_select search_input">
 									<option>0</option>
-									<option>02</option>
-									<option>03</option>
+									<option>1</option>
+									<option>2</option>
 								</select>
 							</div>
 							<button type="submit" class="button search_button">search<span></span><span></span><span></span></button>
