@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="assets/styles/offers_styles.css">
 <link rel="stylesheet" type="text/css" href="assets/styles/offers_responsive.css">
 
+<?php require "config/config.php"?>
 <div class="home">
 		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="assets/images/about_background.jpg"></div>
 		<div class="home_content">
@@ -79,225 +80,96 @@
 
 					<div class="offers_grid">
 
-						<!-- Offers Item -->
 
-						<div class="offers_item rating_4">
+					<?php 
+					if (isset($_GET['destination']) && isset($_GET['check_in']) &&  isset($_GET['check_out']) && 
+					isset($_GET['adults']) && isset($_GET['children'])  ){
+					$destination = $_GET['destination'];
+					$checkIn = $_GET['check_in'];
+					$checkOut = $_GET['check_out'];
+					$adults = $_GET['adults'];
+					$children = $_GET['children'];
+
+					
+					try{
+						$query= "SELECT * FROM flight WHERE destination=:destination AND 
+						(DATE(checking) <= :checkIn AND DATE(checkout) >=:checkOut) AND
+						adults= :adults AND children = :children";
+						$stmt = $conn->prepare($query);
+						$stmt->bindParam(':destination', $destination);
+						$stmt->bindParam(':checkIn', $checkIn);
+						$stmt->bindParam(':checkOut', $checkOut);
+						$stmt->bindParam(':adults', $adults);
+						$stmt->bindParam(':children', $children);
+						$stmt->execute();
+
+						if($stmt->rowCount()===0){
+					 ?>
+
+					<div class="offers_item rating_4">
 							<div class="row">
-								<div class="col-lg-1 temp_col"></div>
-								<div class="col-lg-3 col-1680-4">
-									<div class="offers_image_container">
-										<!-- Image by https://unsplash.com/@kensuarez -->
-										<div class="offers_image_background" style="background-image:url(assets/images/offer_1.jpg)"></div>
-										<div class="offer_name"><a href="single_listing.html">grand castle</a></div>
-									</div>
-								</div>
-								<div class="col-lg-8">
-									<div class="offers_content">
-										<div class="offers_price">$70<span>per night</span></div>
-										<div class="rating_r rating_r_4 offers_rating" data-rating="4">
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-										</div>
-										<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Lorem ipsum dolor sit amet.</p>
-										<div class="offers_icons">
-											<ul class="offers_icons_list">
-												<li class="offers_icons_item"><img src="assets/images/post.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/compass.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/bicycle.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/sailboat.png" alt=""></li>
-											</ul>
-										</div>
-										<div class="button book_button"><a href="#">book<span></span><span></span><span></span></a></div>
-										<div class="offer_reviews">
-											<div class="offer_reviews_content">
-												<div class="offer_reviews_title">very good</div>
-												<div class="offer_reviews_subtitle">100 reviews</div>
-											</div>
-											<div class="offer_reviews_rating text-center">8.1</div>
-										</div>
-									</div>
-								</div>
+								
+								<div class="col-lg-12">
+								<div class="alert alert-warning" role="alert">
+  No results
+</div>
+								
+							   </div>
+								
 							</div>
 						</div>
 
-						<!-- Offers Item -->
 
-						<div class="offers_item rating_3">
+					<?php
+						} else {
+
+						while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+							
+						?>
+							
+						<div class="offers_item rating_<?php echo $row['score']; ?>">
 							<div class="row">
 								<div class="col-lg-1 temp_col"></div>
 								<div class="col-lg-3 col-1680-4">
 									<div class="offers_image_container">
 										<!-- Image by https://unsplash.com/@thoughtcatalog -->
-										<div class="offers_image_background" style="background-image:url(assets/images/offer_5.jpg)"></div>
-										<div class="offer_name"><a href="single_listing.html">eurostar hotel</a></div>
+										<div class="offers_image_background" style="background-image:url(<?php echo DBIMAGE;?>/<?php echo $row['image']; ?> )"></div>
+										<div class="offer_name"><a href="single_listing.html"><?php echo $row['title']; ?></a></div>
 									</div>
 								</div>
 								<div class="col-lg-8">
 									<div class="offers_content">
-										<div class="offers_price">$50<span>per night</span></div>
-										<div class="rating_r rating_r_3 offers_rating" data-rating="3">
+										<div class="offers_price">$<?php echo $row['price']; ?><span>per night</span></div>
+										<div class="rating_r rating_r_<?php echo $row['score']; ?> offers_rating" data-rating="<?php echo $row['score']; ?>">
 											<i></i>
 											<i></i>
 											<i></i>
 											<i></i>
 											<i></i>
 										</div>
-										<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Lorem ipsum dolor sit amet.</p>
-										<div class="offers_icons">
-											<ul class="offers_icons_list">
-												<li class="offers_icons_item"><img src="assets/images/post.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/compass.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/bicycle.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/sailboat.png" alt=""></li>
-											</ul>
-										</div>
+										<p class="offers_text"><?php echo $row['description']; ?></p>
+										
 										<div class="button book_button"><a href="#">book<span></span><span></span><span></span></a></div>
 										<div class="offer_reviews">
-											<div class="offer_reviews_content">
-												<div class="offer_reviews_title">very good</div>
-												<div class="offer_reviews_subtitle">100 reviews</div>
-											</div>
-											<div class="offer_reviews_rating text-center">8.1</div>
+										
+											<div class="offer_reviews_rating text-center"><?php echo $row['user_rating']; ?></div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+
+						<?php 
+						}}
+				} catch(PDOException $e){
+					echo "Error : ".$e->getMessage();
+				}
+			}
+				?>
+
+
 
 						<!-- Offers Item -->
-
-						<div class="offers_item rating_5">
-							<div class="row">
-								<div class="col-lg-1 temp_col"></div>
-								<div class="col-lg-3 col-1680-4">
-									<div class="offers_image_container">
-										<!-- Image by https://unsplash.com/@mindaugas -->
-										<div class="offers_image_background" style="background-image:url(assets/images/offer_6.jpg)"></div>
-										<div class="offer_name"><a href="single_listing.html">grand castle</a></div>
-									</div>
-								</div>
-								<div class="col-lg-8">
-									<div class="offers_content">
-										<div class="offers_price">$110<span>per night</span></div>
-										<div class="rating_r rating_r_5 offers_rating"  data-rating="5">
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-										</div>
-										<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Lorem ipsum dolor sit amet.</p>
-										<div class="offers_icons">
-											<ul class="offers_icons_list">
-												<li class="offers_icons_item"><img src="assets/images/post.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/compass.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/bicycle.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/sailboat.png" alt=""></li>
-											</ul>
-										</div>
-										<div class="button book_button"><a href="#">book<span></span><span></span><span></span></a></div>
-										<div class="offer_reviews">
-											<div class="offer_reviews_content">
-												<div class="offer_reviews_title">very good</div>
-												<div class="offer_reviews_subtitle">100 reviews</div>
-											</div>
-											<div class="offer_reviews_rating text-center">8.1</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Offers Item -->
-
-						<div class="offers_item rating_4">
-							<div class="row">
-								<div class="col-lg-1 temp_col"></div>
-								<div class="col-lg-3 col-1680-4">
-									<div class="offers_image_container">
-										<!-- Image by https://unsplash.com/@rktkn -->
-										<div class="offers_image_background" style="background-image:url(assets/images/offer_7.jpg)"></div>
-										<div class="offer_name"><a href="single_listing.html">eurostar hotel</a></div>
-									</div>
-								</div>
-								<div class="col-lg-8">
-									<div class="offers_content">
-										<div class="offers_price">$50<span>per night</span></div>
-										<div class="rating_r rating_r_4 offers_rating" data-rating="4">
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-										</div>
-										<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Lorem ipsum dolor sit amet.</p>
-										<div class="offers_icons">
-											<ul class="offers_icons_list">
-												<li class="offers_icons_item"><img src="assets/images/post.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/compass.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/bicycle.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/sailboat.png" alt=""></li>
-											</ul>
-										</div>
-										<div class="button book_button"><a href="#">book<span></span><span></span><span></span></a></div>
-										<div class="offer_reviews">
-											<div class="offer_reviews_content">
-												<div class="offer_reviews_title">very good</div>
-												<div class="offer_reviews_subtitle">100 reviews</div>
-											</div>
-											<div class="offer_reviews_rating text-center">8.1</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Offers Item -->
-
-						<div class="offers_item rating_3">
-							<div class="row">
-								<div class="col-lg-1 temp_col"></div>
-								<div class="col-lg-3 col-1680-4">
-									<div class="offers_image_container">
-										<!-- Image by https://unsplash.com/@itsnwa -->
-										<div class="offers_image_background" style="background-image:url(assets/images/offer_8.jpg)"></div>
-										<div class="offer_name"><a href="single_listing.html">grand castle</a></div>
-									</div>
-								</div>
-								<div class="col-lg-8">
-									<div class="offers_content">
-										<div class="offers_price">$90<span>per night</span></div>
-										<div class="rating_r rating_r_3 offers_rating" data-rating="3">
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-										</div>
-										<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Lorem ipsum dolor sit amet.</p>
-										<div class="offers_icons">
-											<ul class="offers_icons_list">
-												<li class="offers_icons_item"><img src="assets/images/post.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/compass.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/bicycle.png" alt=""></li>
-												<li class="offers_icons_item"><img src="assets/images/sailboat.png" alt=""></li>
-											</ul>
-										</div>
-										<div class="button book_button"><a href="#">book<span></span><span></span><span></span></a></div>
-										<div class="offer_reviews">
-											<div class="offer_reviews_content">
-												<div class="offer_reviews_title">very good</div>
-												<div class="offer_reviews_subtitle">100 reviews</div>
-											</div>
-											<div class="offer_reviews_rating text-center">8.1</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
 
 					</div>
 				</div>
