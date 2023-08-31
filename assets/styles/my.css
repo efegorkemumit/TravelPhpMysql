@@ -31,7 +31,7 @@ background-image: url('../images/contact.png');
 {
     .offers_grid
     {
-        height: 750px !important;
+        min-height: 750px !important;
     }
 }
 
@@ -39,4 +39,56 @@ background-image: url('../images/contact.png');
 {
 background-image: url('../images/about_background.jpg');
 
+}
+.m-height-600
+{
+    max-height: 600px;
+}
+
+
+.milestones
+{
+	padding-top: 105px;
+	padding-bottom: 100px;
+}
+.milestone
+{
+	width: 100%;
+}
+.milestone_icon
+{
+	display: inline-block;
+	height: 58px;
+}
+.milestone_icon img
+{
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.milestone_counter
+{
+	font-size: 48px;
+	font-weight: 600;
+	color: #2d2c2c;
+	line-height: 1;
+	margin-top: 25px;
+}
+.milestone_text
+{
+	font-size: 14px;
+	font-weight: 600;
+	color: #9a9999;
+	margin-top: 22px;
+	text-transform: uppercase;
+}
+.intro_titlec {
+    font-size: 30px;
+    font-weight: 700;
+    color: #2d2c2c;
+    text-transform: uppercase;
 }
