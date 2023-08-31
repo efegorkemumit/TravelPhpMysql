@@ -391,7 +391,7 @@ if($result->rowCount()>0){
     echo date("F jS", strtotime($row['checkout']));
     ?>
 </div>
-							<div class="button intro_button"><div class="button_bcg"></div><a href="#">see more<span></span><span></span><span></span></a></div>
+							<div class="button intro_button"><div class="button_bcg"></div><a href="<?php echo APPURL;?>/detail/trips.php?id=<?php echo $row['id'] ?>">see more<span></span><span></span><span></span></a></div>
 							<div class="intro_center text-center">
 								<h1><?php echo $row['title']; ?> </h1>
 								<div class="intro_price">From $<?php echo $row['price']; ?> </div>

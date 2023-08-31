@@ -34,3 +34,9 @@ background-image: url('../images/contact.png');
         height: 750px !important;
     }
 }
+
+.page-banner-detail
+{
+background-image: url('../images/about_background.jpg');
+
+}
