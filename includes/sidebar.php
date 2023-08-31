@@ -24,106 +24,77 @@
 							<!-- Search Panel -->
 
 							<div class="search_panel active">
-								<form action="#" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-									<div class="search_item">
-										<div>destination</div>
-										<input type="text" class="destination search_input" required="required">
-									</div>
-									<div class="search_item">
-										<div>check in</div>
-										<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>check out</div>
-										<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>adults</div>
-										<select name="adults" id="adults_1" class="dropdown_item_select search_input">
-											<option>01</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
-									<div class="search_item">
-										<div>children</div>
-										<select name="children" id="children_1" class="dropdown_item_select search_input">
-											<option>0</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
+							<form action="search_results_hotel.php" method="GET" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<div class="search_item">
+								<div>hotels destination</div>
+								<input type="text" name="destination" class="destination search_input" required="required">
+							</div>
+							<div class="search_item">
+								<div>check in</div>
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>check out</div>
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>adults</div>
+								<select name="adults" id="adults_4" class="dropdown_item_select search_input">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+								</select>
+							</div>
+							<div class="search_item">
+								<div>children</div>
+								<select name="children" id="children_4" class="dropdown_item_select search_input">
+									<option>0</option>
+									<option>1</option>
+									<option>2</option>
+								</select>
+							</div>
 									<div class="extras">
 										<ul class="search_extras clearfix">
 											<li class="search_extras_item">
 												<div class="clearfix">
-													<input type="checkbox" id="search_extras_1" class="search_extras_cb">
-													<label for="search_extras_1">Pet Friendly</label>
+													<input name="pet" type="checkbox" id="search_extras_1" class="search_extras_cb">
+													<label   for="search_extras_1">Pet Friendly</label>
 												</div>	
 											</li>
 											<li class="search_extras_item">
 												<div class="clearfix">
-													<input type="checkbox" id="search_extras_2" class="search_extras_cb">
+													<input name="carPark"  type="checkbox" id="search_extras_2" class="search_extras_cb">
 													<label for="search_extras_2">Car Parking</label>
 												</div>
 											</li>
 											<li class="search_extras_item">
 												<div class="clearfix">
-													<input type="checkbox" id="search_extras_3" class="search_extras_cb">
-													<label for="search_extras_3">Wireless Internet</label>
+													<input name="wireless" type="checkbox" id="search_extras_3" class="search_extras_cb">
+													<label  for="search_extras_3">Wireless Internet</label>
 												</div>
 											</li>
 											<li class="search_extras_item">
 												<div class="clearfix">
-													<input type="checkbox" id="search_extras_4" class="search_extras_cb">
-													<label for="search_extras_4">Reservations</label>
+													<input name="reservation" type="checkbox" id="search_extras_4" class="search_extras_cb">
+													<label  for="search_extras_4">Reservations</label>
 												</div>
 											</li>
 											<li class="search_extras_item">
 												<div class="clearfix">
-													<input type="checkbox" id="search_extras_5" class="search_extras_cb">
-													<label for="search_extras_5">Private Parking</label>
+													<input name="private" type="checkbox" id="search_extras_5" class="search_extras_cb">
+													<label  for="search_extras_5">Private Parking</label>
 												</div>
 											</li>
 											<li class="search_extras_item">
 												<div class="clearfix">
-													<input type="checkbox" id="search_extras_6" class="search_extras_cb">
-													<label for="search_extras_6">Smoking Area</label>
+													<input  name="smoking" type="checkbox" id="search_extras_6" class="search_extras_cb">
+													<label  for="search_extras_6">Smoking Area</label>
 												</div>
 											</li>
-											<li class="search_extras_item">
-												<div class="clearfix">
-													<input type="checkbox" id="search_extras_7" class="search_extras_cb">
-													<label for="search_extras_7">Wheelchair Accessible</label>
-												</div>
-											</li>
-											<li class="search_extras_item">
-												<div class="clearfix">
-													<input type="checkbox" id="search_extras_8" class="search_extras_cb">
-													<label for="search_extras_8">Pool</label>
-												</div>
-											</li>
+											
 										</ul>
 									</div>
-									<div class="more_options">
-										<div class="more_options_trigger">
-											<a href="#">load more options</a>
-										</div>
-										<ul class="more_options_list clearfix">
-											<li class="more_options_item">
-												<div class="clearfix">
-													<input type="checkbox" id="more_options_1" class="search_extras_cb">
-													<label for="more_options_1">Pet Friendly</label>
-												</div>	
-											</li>
-											<li class="more_options_item">
-												<div class="clearfix">
-													<input type="checkbox" id="more_options_2" class="search_extras_cb">
-													<label for="more_options_2">Car Parking</label>
-												</div>
-											</li>
-										</ul>
-									</div>
+								
 									<button class="button search_button">search<span></span><span></span><span></span></button>
 								</form>
 							</div>
@@ -131,73 +102,73 @@
 							<!-- Search Panel -->
 
 							<div class="search_panel">
-								<form action="#" id="search_form_2" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-									<div class="search_item">
-										<div>destination</div>
-										<input type="text" class="destination search_input" required="required">
-									</div>
-									<div class="search_item">
-										<div>check in</div>
-										<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>check out</div>
-										<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>adults</div>
-										<select name="adults" id="adults_2" class="dropdown_item_select search_input">
-											<option>01</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
-									<div class="search_item">
-										<div>children</div>
-										<select name="children" id="children_2" class="dropdown_item_select search_input">
-											<option>0</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
-									<button class="button search_button">search<span></span><span></span><span></span></button>
-								</form>
+							<form action="search_results_car.php" method="GET" id="search_form_2" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<div class="search_item">
+								<div>car destination</div>
+								<input type="text" name="destination" class="destination search_input" required="required">
+							</div>
+							<div class="search_item">
+								<div>check in</div>
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>check out</div>
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>adults</div>
+								<select name="adults" id="adults_4" class="dropdown_item_select search_input">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+								</select>
+							</div>
+							<div class="search_item">
+								<div>children</div>
+								<select name="children" id="children_4" class="dropdown_item_select search_input">
+									<option>0</option>
+									<option>1</option>
+									<option>2</option>
+								</select>
+							</div>
+							<button type="submit" class="button search_button">search<span></span><span></span><span></span></button>
+						</form>
 							</div>
 
 							<!-- Search Panel -->
 
 							<div class="search_panel">
-								<form action="#" id="search_form_3" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-									<div class="search_item">
-										<div>destination</div>
-										<input type="text" class="destination search_input" required="required">
-									</div>
-									<div class="search_item">
-										<div>check in</div>
-										<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>check out</div>
-										<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>adults</div>
-										<select name="adults" id="adults_3" class="dropdown_item_select search_input">
-											<option>01</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
-									<div class="search_item">
-										<div>children</div>
-										<select name="children" id="children_3" class="dropdown_item_select search_input">
-											<option>0</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
-									<button class="button search_button">search<span></span><span></span><span></span></button>
-								</form>
+							<form action="search_results_flight.php" method="GET" id="search_form_3" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<div class="search_item">
+								<div>flight destination</div>
+								<input type="text" name="destination" class="destination search_input" required="required">
+							</div>
+							<div class="search_item">
+								<div>check in</div>
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>check out</div>
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>adults</div>
+								<select name="adults" id="adults_4" class="dropdown_item_select search_input">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+								</select>
+							</div>
+							<div class="search_item">
+								<div>children</div>
+								<select name="children" id="children_4" class="dropdown_item_select search_input">
+									<option>0</option>
+									<option>1</option>
+									<option>2</option>
+								</select>
+							</div>
+							<button type="submit" class="button search_button">search<span></span><span></span><span></span></button>
+						</form>
 							</div>
 
 							<!-- Search Panel -->
@@ -239,73 +210,73 @@
 							<!-- Search Panel -->
 
 							<div class="search_panel">
-								<form action="#" id="search_form_5" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-									<div class="search_item">
-										<div>destination</div>
-										<input type="text" class="destination search_input" required="required">
-									</div>
-									<div class="search_item">
-										<div>check in</div>
-										<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>check out</div>
-										<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>adults</div>
-										<select name="adults" id="adults_5" class="dropdown_item_select search_input">
-											<option>01</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
-									<div class="search_item">
-										<div>children</div>
-										<select name="children" id="children_5" class="dropdown_item_select search_input">
-											<option>0</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
-									<button class="button search_button">search<span></span><span></span><span></span></button>
-								</form>
+							<form action="search_results_cruise.php" method="GET" id="search_form_5" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<div class="search_item">
+								<div>cruise destination</div>
+								<input type="text" name="destination" class="destination search_input" required="required">
+							</div>
+							<div class="search_item">
+								<div>check in</div>
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>check out</div>
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>adults</div>
+								<select name="adults" id="adults_4" class="dropdown_item_select search_input">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+								</select>
+							</div>
+							<div class="search_item">
+								<div>children</div>
+								<select name="children" id="children_4" class="dropdown_item_select search_input">
+									<option>0</option>
+									<option>1</option>
+									<option>2</option>
+								</select>
+							</div>
+							<button type="submit" class="button search_button">search<span></span><span></span><span></span></button>
+						</form>
 							</div>
 
 							<!-- Search Panel -->
 
 							<div class="search_panel">
-								<form action="#" id="search_form_6" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-									<div class="search_item">
-										<div>destination</div>
-										<input type="text" class="destination search_input" required="required">
-									</div>
-									<div class="search_item">
-										<div>check in</div>
-										<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>check out</div>
-										<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-									</div>
-									<div class="search_item">
-										<div>adults</div>
-										<select name="adults" id="adults_6" class="dropdown_item_select search_input">
-											<option>01</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
-									<div class="search_item">
-										<div>children</div>
-										<select name="children" id="children_6" class="dropdown_item_select search_input">
-											<option>0</option>
-											<option>02</option>
-											<option>03</option>
-										</select>
-									</div>
-									<button class="button search_button">search<span></span><span></span><span></span></button>
-								</form>
+							<form action="search_results_activate.php" method="GET" id="search_form_6" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<div class="search_item">
+								<div>act destination</div>
+								<input type="text" name="destination" class="destination search_input" required="required">
+							</div>
+							<div class="search_item">
+								<div>check in</div>
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>check out</div>
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+							</div>
+							<div class="search_item">
+								<div>adults</div>
+								<select name="adults" id="adults_4" class="dropdown_item_select search_input">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+								</select>
+							</div>
+							<div class="search_item">
+								<div>children</div>
+								<select name="children" id="children_4" class="dropdown_item_select search_input">
+									<option>0</option>
+									<option>1</option>
+									<option>2</option>
+								</select>
+							</div>
+							<button type="submit" class="button search_button">search<span></span><span></span><span></span></button>
+						</form>
 							</div>
 						</div>
 					</div>

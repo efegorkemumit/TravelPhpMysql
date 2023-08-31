@@ -90,17 +90,54 @@
 					$adults = $_GET['adults'];
 					$children = $_GET['children'];
 
+					$optionalParams= [
+						'pet'=>'pet',
+						'carPark'=>'carPark',
+						'wireless'=>'wireless',
+						'reservation'=>'reservation',
+						'private'=>'private',
+						'smoking'=>'smoking'
+
+
+					];
+
+					$conditions = [];
+					foreach ($optionalParams as $param => $column) {
+						if (isset($_GET[$param])) {
+							$conditions[] = "$column = :$param";
+						}
+					}
+
+
 					
 					try{
-						$query= "SELECT * FROM hotel WHERE destination=:destination AND 
+						$query= "SELECT * FROM hotels WHERE destination=:destination AND 
 						(DATE(checking) <= :checkIn AND DATE(checkout) >=:checkOut) AND
 						adults= :adults AND children = :children";
+						if (!empty($conditions)) {
+							$query .= " AND " . implode(" AND ", $conditions);
+						}
+
+
+
 						$stmt = $conn->prepare($query);
 						$stmt->bindParam(':destination', $destination);
 						$stmt->bindParam(':checkIn', $checkIn);
 						$stmt->bindParam(':checkOut', $checkOut);
 						$stmt->bindParam(':adults', $adults);
 						$stmt->bindParam(':children', $children);
+
+
+						foreach ($optionalParams as $param => $column) {
+							if (isset($_GET[$param])) {
+								$stmt->bindValue(":$param", 1, PDO::PARAM_INT);
+							}
+						}
+
+
+
+
+
 						$stmt->execute();
 
 						if($stmt->rowCount()===0){
