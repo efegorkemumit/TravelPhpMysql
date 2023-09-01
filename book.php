@@ -4,7 +4,13 @@
 <link rel="stylesheet" type="text/css" href="assets/styles/contact_responsive.css">
 
 <!-- Home -->
+<?php 
 
+if(!isset($_SESSION["username"])) {
+    echo "<script>window.location.href='".APPURL."';</script>";
+  }
+
+  ?>
 <div class="home">
 		<div class="home_background parallax-window page-book " data-parallax="scroll"></div>
 		<div class="home_content">
@@ -41,7 +47,7 @@
                                 elseif($category==='active')
                                 {   $sql = "SELECT * FROM active WHERE id= :id";   }
                                else{
-                                die("error :$category");
+                                echo "<script>window.location.href='".APPURL."';</script>";
                                }
                                
                                $stmt= $conn->prepare($sql);
@@ -76,7 +82,7 @@
                                   <?php }
                                }
                                else{
-                                echo "No results";
+                                echo "<script>window.location.href='".APPURL."';</script>";
                                }
                                ?>
                 
@@ -121,7 +127,7 @@ if ($_SERVER ["REQUEST_METHOD"]=="POST"){
             $column_name= "active_id";
             break;
         default:
-           die("Error : ");
+             echo "<script>window.location.href='".APPURL."';</script>";
     
     }
 
