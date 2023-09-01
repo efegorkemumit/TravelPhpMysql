@@ -54,7 +54,7 @@ if($trip){
 					<div class="intro_content">
 						<div class="intro_titlec">  <?php echo $trip['title']; ?></div>
 						<p class="intro_text">  <?php echo $trip['description']; ?></p>
-						<div class="button intro_button"><div class="button_bcg"></div><a href="#">Book now<span></span><span></span><span></span></a></div>
+						<div class="button intro_button"><div class="button_bcg"></div><a href="<?php echo APPURL;?>/book.php?id=<?php echo $trip['id']; ?>&category=flight">Book now<span></span><span></span><span></span></a></div>
 					</div>
 				</div>
 			</div>

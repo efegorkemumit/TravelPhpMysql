@@ -92,3 +92,9 @@ background-image: url('../images/about_background.jpg');
     color: #2d2c2c;
     text-transform: uppercase;
 }
+
+.page-book
+{
+background-image: url('../images/elements_background.jpg') !important;
+
+}
