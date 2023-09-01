@@ -86,19 +86,93 @@
                                     <div class="card-header">
                                         <h3 class="text-center">BOOKING</h3>
                                     </div>
+                                    
                                     <div class="card-body">
-                                        <form>
+<?php 
+
+if ($_SERVER ["REQUEST_METHOD"]=="POST"){
+    $category = $_GET['category'];
+    $booking_table="";
+    $column_name="";
+
+    switch($category){
+        case 'trip':
+            $booking_table= "bookings_trip";
+            $column_name= "trip_id";
+            break;
+         case 'hotels':
+            $booking_table= "bookings_hotels";
+            $column_name= "hotel_id";
+            break;
+          case 'flight':
+            $booking_table= "bookings_flight";
+            $column_name= "flight_id";
+            break;
+         case 'cruise':
+            $booking_table= "bookings_cruise";
+            $column_name= "cruise_id";
+            break;
+         case 'car':
+            $booking_table= "bookings_car";
+            $column_name= "car_id";
+            break;
+         case 'active':
+            $booking_table= "bookings_active";
+            $column_name= "active_id";
+            break;
+        default:
+           die("Error : ");
+    
+    }
+
+    $user_id = $_SESSION['user_id'];
+    $id= $_GET['id'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $phone_number = $_POST['phone_number'];
+
+
+    $sql = "INSERT INTO $booking_table (user_id, $column_name, first_name, last_name, phone_number ) 
+    VALUES (:user_id, :column, :first_name, :last_name, :phone_number)";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+    $stmt->bindParam(":column", $id, PDO::PARAM_INT);
+    $stmt->bindParam(":first_name", $first_name, PDO::PARAM_STR);
+    $stmt->bindParam(":last_name", $last_name, PDO::PARAM_STR);
+    $stmt->bindParam(":phone_number", $phone_number, PDO::PARAM_STR);
+
+    if($stmt->execute())
+    {
+        echo '<div class="alert alert-success"> Sucess </div>';
+    }
+    else
+    {
+        echo '<div class="alert alert-danger"> Danger </div>';
+    }
+
+
+
+}
+
+
+
+?>
+
+
+
+                                        <form method="POST">
                                             <!-- 2 column grid layout with text inputs for the first and last names -->
                                             <div class="row mb-4">
                                               <div class="col">
                                                 <div class="form-outline">
-                                                  <input type="text" id="form6Example1" class="form-control" />
+                                                  <input name="first_name"  type="text" id="form6Example1" class="form-control" />
                                                   <label class="form-label" for="form6Example1">First name</label>
                                                 </div>
                                               </div>
                                               <div class="col">
                                                 <div class="form-outline">
-                                                  <input type="text" id="form6Example2" class="form-control" />
+                                                  <input  name="last_name" type="text" id="form6Example2" class="form-control" />
                                                   <label class="form-label" for="form6Example2">Last name</label>
                                                 </div>
                                               </div>
@@ -106,18 +180,16 @@
                                           
                                             <!-- Text input -->
                                             <div class="form-outline mb-4">
-                                              <input type="text" id="form6Example3" class="form-control" />
+                                              <input name="phone_number" type="text" id="form6Example3" class="form-control" />
                                               <label class="form-label" for="form6Example3">Phone</label>
                                             </div>
                                           
                                           
                                             <!-- Submit button -->
-                                            <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
+                                            <button name="submit" type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
                                           </form>
 
-                                          <div class="alert alert-success" role="alert">
-                                            This is a success alert—check it out!
-                                          </div>
+                                        
                 
                                     </div>
                 
