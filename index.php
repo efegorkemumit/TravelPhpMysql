@@ -559,7 +559,7 @@ if($result->rowCount()>0){
     echo $trim;
 ?> </p>
 									
-									<div class="offers_link"><a href="offers.html">read more</a></div>
+									<div class="offers_link"><a href="<?php echo APPURL;?>/detail/cruise.php?id=<?php echo $row['id'] ?>">read more</a></div>
 								</div>
 							</div>
 						</div>
@@ -604,7 +604,7 @@ if($result->rowCount()>0){
 					<div class="trending_item clearfix">
 						<div class="trending_image"><img src="<?php echo DBIMAGE; ?>/<?php echo $row['image']; ?>" alt="https://unsplash.com/@fransaraco"></div>
 						<div class="trending_content">
-							<div class="trending_title"><a href="#"><?php echo $row['title']; ?></a></div>
+							<div class="trending_title"><a href="<?php echo APPURL;?>/detail/hotel.php?id=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a></div>
 							<div class="trending_price">From $<?php echo $row['price']; ?></div>
 							<div class="trending_location"><?php echo $row['destination']; ?></div>
 						</div>

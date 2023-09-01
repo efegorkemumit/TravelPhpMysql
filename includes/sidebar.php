@@ -24,7 +24,7 @@
 							<!-- Search Panel -->
 
 							<div class="search_panel active">
-							<form action="search_results_hotel.php" method="GET" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<form action="<?php echo APPURL;?>/search_results_hotel.php" method="GET" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
 								<div>hotels destination</div>
 								<input type="text" name="destination" class="destination search_input" required="required">
@@ -102,7 +102,7 @@
 							<!-- Search Panel -->
 
 							<div class="search_panel">
-							<form action="search_results_car.php" method="GET" id="search_form_2" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<form action="<?php echo APPURL;?>/search_results_car.php" method="GET" id="search_form_2" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
 								<div>car destination</div>
 								<input type="text" name="destination" class="destination search_input" required="required">
@@ -138,7 +138,7 @@
 							<!-- Search Panel -->
 
 							<div class="search_panel">
-							<form action="search_results_flight.php" method="GET" id="search_form_3" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<form action="<?php echo APPURL;?>/search_results_flight.php" method="GET" id="search_form_3" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
 								<div>flight destination</div>
 								<input type="text" name="destination" class="destination search_input" required="required">
@@ -174,7 +174,7 @@
 							<!-- Search Panel -->
 
 							<div class="search_panel">
-							<form action="search_resulst_tour.php" method="GET" id="search_form_4" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<form action="<?php echo APPURL;?>/search_resulst_tour.php" method="GET" id="search_form_4" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
 								<div>trips destination</div>
 								<input type="text" name="destination" class="destination search_input" required="required">
@@ -210,7 +210,7 @@
 							<!-- Search Panel -->
 
 							<div class="search_panel">
-							<form action="search_results_cruise.php" method="GET" id="search_form_5" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<form action="<?php echo APPURL;?>/search_results_cruise.php" method="GET" id="search_form_5" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
 								<div>cruise destination</div>
 								<input type="text" name="destination" class="destination search_input" required="required">
@@ -246,7 +246,7 @@
 							<!-- Search Panel -->
 
 							<div class="search_panel">
-							<form action="search_results_activate.php" method="GET" id="search_form_6" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+							<form action="<?php echo APPURL;?>/search_results_activate.php" method="GET" id="search_form_6" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div class="search_item">
 								<div>act destination</div>
 								<input type="text" name="destination" class="destination search_input" required="required">

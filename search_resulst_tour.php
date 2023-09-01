@@ -134,7 +134,7 @@
 									<div class="offers_image_container">
 										<!-- Image by https://unsplash.com/@thoughtcatalog -->
 										<div class="offers_image_background" style="background-image:url(<?php echo DBIMAGE;?>/<?php echo $row['image']; ?> )"></div>
-										<div class="offer_name"><a href="single_listing.html"><?php echo $row['title']; ?></a></div>
+										<div class="offer_name"><a href="<?php echo APPURL;?>/detail/trips.php?id=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a></div>
 									</div>
 								</div>
 								<div class="col-lg-8">
