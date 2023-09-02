@@ -5,6 +5,13 @@
 		<div class="container">
 			<div class="row">
 
+			<?php 
+							try{
+								$query14= "SELECT * FROM about";
+								$result14 = $conn->query($query14);
+								while($row = $result14->fetch(PDO::FETCH_ASSOC)){
+							?>
+
 				<!-- Footer Column -->
 				<div class="col-lg-3 footer_column">
 					<div class="footer_col">
@@ -12,17 +19,28 @@
 							<div class="logo_container footer_logo">
 								<div class="logo"><a href="#"><img src="<?php echo APPURL; ?>/assets/images/logo.png" alt="">travelix</a></div>
 							</div>
-							<p class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula pretium.</p>
+							<p class="footer_about_text">   <?php 
+    $trim = strlen($row['description']) > 200 ? substr($row['description'], 0, 200) . '...' : $row['description'];
+    echo $trim;
+?></p>
 							<ul class="footer_social_list">
-								<li class="footer_social_item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-behance"></i></a></li>
+								<li class="footer_social_item"><a href="<?php echo $row['pinterest']; ?>"><i class="fa fa-pinterest"></i></a></li>
+								<li class="footer_social_item"><a href="<?php echo $row['facebook']; ?>"><i class="fa fa-facebook-f"></i></a></li>
+								<li class="footer_social_item"><a href="<?php echo $row['twitter']; ?>"><i class="fa fa-twitter"></i></a></li>
+								<li class="footer_social_item"><a href="<?php echo $row['twitter']; ?>"><i class="fa fa-dribbble"></i></a></li>
+								<li class="footer_social_item"><a href="<?php echo $row['pinterest']; ?>"><i class="fa fa-behance"></i></a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
+				<?php 
+							} }
+							catch(PDOException $e){
+								echo "Error :" .$e->getMessage();
+							}
+							?>
+
+
 
 				<!-- Footer Column -->
 				<div class="col-lg-3 footer_column">
@@ -80,6 +98,13 @@
 					</div>
 				</div>
 
+				<?php 
+							try{
+								$query13= "SELECT * FROM about";
+								$result13 = $conn->query($query13);
+								while($row = $result13->fetch(PDO::FETCH_ASSOC)){
+							?>
+
 				<!-- Footer Column -->
 				<div class="col-lg-3 footer_column">
 					<div class="footer_col">
@@ -88,24 +113,31 @@
 							<ul class="contact_info_list">
 								<li class="contact_info_item d-flex flex-row">
 									<div><div class="contact_info_icon"><img src="<?php echo APPURL; ?>/assets/images/placeholder.svg" alt=""></div></div>
-									<div class="contact_info_text">4127 Raoul Wallenber 45b-c Gibraltar</div>
+									<div class="contact_info_text"><?php echo $row['adress']; ?></div>
 								</li>
 								<li class="contact_info_item d-flex flex-row">
 									<div><div class="contact_info_icon"><img src="<?php echo APPURL; ?>/assets/images/phone-call.svg" alt=""></div></div>
-									<div class="contact_info_text">2556-808-8613</div>
+									<div class="contact_info_text"><?php echo $row['phone']; ?></div>
 								</li>
 								<li class="contact_info_item d-flex flex-row">
 									<div><div class="contact_info_icon"><img src="<?php echo APPURL; ?>/assets/images/message.svg" alt=""></div></div>
-									<div class="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top">contactme@gmail.com</a></div>
+									<div class="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top"><?php echo $row['email']; ?></a></div>
 								</li>
 								<li class="contact_info_item d-flex flex-row">
 									<div><div class="contact_info_icon"><img src="<?php echo APPURL; ?>/assets/images/planet-earth.svg" alt=""></div></div>
-									<div class="contact_info_text"><a href="https://colorlib.com">www.colorlib.com</a></div>
+									<div class="contact_info_text"><a href="https://colorlib.com">www.travelmysql.com</a></div>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
+
+				<?php 
+							} }
+							catch(PDOException $e){
+								echo "Error :" .$e->getMessage();
+							}
+							?>
 
 			</div>
 		</div>

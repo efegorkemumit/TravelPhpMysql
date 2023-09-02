@@ -2,7 +2,6 @@
 <link rel="stylesheet" type="text/css" href="assets/styles/offers_styles.css">
 <link rel="stylesheet" type="text/css" href="assets/styles/offers_responsive.css">
 
-<?php require "config/config.php"?>
 <div class="home">
 		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="assets/images/about_background.jpg"></div>
 		<div class="home_content">

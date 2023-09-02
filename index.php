@@ -1,6 +1,5 @@
 <?php require "includes/header.php"?>
 <link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/styles/main_styles.css">
-<?php require "config/config.php"?>
 
 
 <?php

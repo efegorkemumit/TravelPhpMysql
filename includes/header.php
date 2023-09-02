@@ -7,6 +7,9 @@ define("APPURL","http://localhost/TravelPhpMysql");
 define("ASSETSIMAGE", "http://localhost/TravelPhpMysql/assets/images");
 define("DBIMAGE", "http://localhost/TravelPhpMysql/assets/images");
 
+require_once($_SERVER['DOCUMENT_ROOT'].'/TravelPhpMysql/config/config.php');
+
+
 ?>
 
 
@@ -42,20 +45,32 @@ define("DBIMAGE", "http://localhost/TravelPhpMysql/assets/images");
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-
+					<?php 
+							try{
+								$query12= "SELECT * FROM about";
+								$result12 = $conn->query($query12);
+								while($row = $result12->fetch(PDO::FETCH_ASSOC)){
+							?>
 
 					
-						<div class="phone">+45 345 3324 56789</div>
+						<div class="phone"><?php echo $row['phone']; ?></div>
 						<div class="social">
 							<ul class="social_list">
-								<li class="social_list_item"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="<?php echo $row['pinterest']; ?>"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="<?php echo $row['facebook']; ?>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="<?php echo $row['twitter']; ?>#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="<?php echo $row['twitter']; ?>"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="<?php echo $row['facebook']; ?>"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="<?php echo $row['linkedin']; ?>"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
+
+						<?php 
+							} }
+							catch(PDOException $e){
+								echo "Error :" .$e->getMessage();
+							}
+							?>
 
 
 
@@ -91,7 +106,7 @@ define("DBIMAGE", "http://localhost/TravelPhpMysql/assets/images");
 							<ul class="main_nav_list">
 								<li class="main_nav_item"><a href="<?php echo APPURL;?>">home</a></li>
 								<li class="main_nav_item"><a href="<?php echo APPURL;?>/about-us.php">about us</a></li>
-								<li class="main_nav_item"><a href="offers.html">offers</a></li>
+								<li class="main_nav_item"><a href="<?php echo APPURL;?>/search_results_hotel.php">offers</a></li>
 								<li class="main_nav_item"><a href="blog.html">news</a></li>
 								<li class="main_nav_item"><a href="contact.html">contact</a></li>
 							</ul>

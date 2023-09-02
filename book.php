@@ -1,5 +1,4 @@
 <?php require "includes/header.php"?>
-<?php require "config/config.php"?>
 <link rel="stylesheet" type="text/css" href="assets/styles/contact_styles.css">
 <link rel="stylesheet" type="text/css" href="assets/styles/contact_responsive.css">
 
