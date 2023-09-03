@@ -47,34 +47,30 @@
 					<div class="footer_col">
 						<div class="footer_title">blog posts</div>
 						<div class="footer_content footer_blog">
-							
-							<!-- Footer blog item -->
-							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="<?php echo APPURL; ?>/assets/images/footer_blog_1.jpg" alt="https://unsplash.com/@avidenov"></div>
-								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
-								</div>
-							</div>
-							
-							<!-- Footer blog item -->
-							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="<?php echo APPURL; ?>/assets/images/footer_blog_2.jpg" alt="https://unsplash.com/@deannaritchie"></div>
-								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">New destinations for you</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
-								</div>
-							</div>
+							<?php
+						try{
+								$query20= "SELECT * FROM blog ORDER BY  create_at DESC LIMIT 3";
+								$result20 = $conn->query($query20);
+								while($row = $result20->fetch(PDO::FETCH_ASSOC)){
+							?>
 
 							<!-- Footer blog item -->
 							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="<?php echo APPURL; ?>/assets/images/footer_blog_3.jpg" alt="https://unsplash.com/@bergeryap87"></div>
+								<div class="footer_blog_image"><img src="<?php echo APPURL; ?>/<?php echo $row['image']; ?>" alt="https://unsplash.com/@avidenov"></div>
 								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
+									<div class="footer_blog_title"><a href="blog.html"><?php echo $row['title']; ?></a></div>
+									<div class="footer_blog_date"><?php echo $row['create_at']; ?></div>
 								</div>
 							</div>
-
+							
+							<?php 
+							} }
+							catch(PDOException $e){
+								echo "Error :" .$e->getMessage();
+							}
+							?>
+							
+							
 						</div>
 					</div>
 				</div>

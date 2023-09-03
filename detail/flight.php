@@ -4,7 +4,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo APPURL;?>/assets/styles/my.css">
 
 
-<?php require "../config/config.php"?>
 
 
 <?php 

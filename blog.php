@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="assets/styles/blog_styles.css">
 <link rel="stylesheet" type="text/css" href="assets/styles/blog_responsive.css">
 
+<link rel="stylesheet" type="text/css" href="assets/styles/my.css">
 
 <!-- Home -->
 
@@ -28,7 +29,7 @@
 
                         <?php 
                        $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                       $per_page = 1; 
+                       $per_page = 5; 
                        
                        $starts = ($page - 1) * $per_page;
                        
@@ -62,7 +63,7 @@
 ?> 
                                 </p>
 							</div>
-							<div class="blog_post_link"><a href="#">read more</a></div>
+							<div class="blog_post_link"><a href="<?php echo APPURL;?>/detail/blog-detail.php?id=<?php echo $row['id'] ?>">read more</a></div>
 						</div>
                         <?php
 
@@ -82,17 +83,19 @@
                                 $total_pages = ceil($total_posts / $per_page);
 
                                 for($i = 1; $i <= $total_pages; $i++){
+                                    echo '<li class="blog_dot';
+                                    if($i == $page){
+                                        echo ' active pageactive';
+                                    }
+                                    echo '">
+                                    <a class="page-num" href="blog.php?page='.$i.'">0'.$i.'</a></li> ';
                                     
                                 }
                             
                             
                             ?>
 
-							<li class="blog_dot active"><div></div>01.</li>
-							<li class="blog_dot"><div></div>02.</li>
-							<li class="blog_dot"><div></div>03.</li>
-?>
-
+						
 
 						</ul>
 					</div>

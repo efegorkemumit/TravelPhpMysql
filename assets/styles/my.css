@@ -105,3 +105,14 @@ background-image: url('../images/blog_background.jpg') !important;
 
 }
 
+.page-num
+{
+	color : #2b2b2b !important
+}
+.pageactive
+{
+
+	border: 2px solid #fa9e1c;
+	border-radius: 60px;
+
+}
