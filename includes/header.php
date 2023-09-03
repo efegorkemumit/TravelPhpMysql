@@ -107,7 +107,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/TravelPhpMysql/config/config.php');
 								<li class="main_nav_item"><a href="<?php echo APPURL;?>">home</a></li>
 								<li class="main_nav_item"><a href="<?php echo APPURL;?>/about-us.php">about us</a></li>
 								<li class="main_nav_item"><a href="<?php echo APPURL;?>/search_results_hotel.php">offers</a></li>
-								<li class="main_nav_item"><a href="blog.html">news</a></li>
+								<li class="main_nav_item"><a href="<?php echo APPURL;?>/blog.php">news</a></li>
 								<li class="main_nav_item"><a href="contact.html">contact</a></li>
 							</ul>
 						</div>

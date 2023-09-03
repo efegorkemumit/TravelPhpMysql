@@ -98,3 +98,10 @@ background-image: url('../images/about_background.jpg');
 background-image: url('../images/elements_background.jpg') !important;
 
 }
+
+.page-blog
+{
+background-image: url('../images/blog_background.jpg') !important;
+
+}
+
