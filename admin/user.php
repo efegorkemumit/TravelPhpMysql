@@ -1,5 +1,30 @@
 <?php require "includes/header.php"?>
 
+
+<?php 
+
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+	$id = $_POST['id'];
+	$stmt = $conn->prepare("DELETE FROM users  WHERE `id`=:id");
+	$stmt->bindParam(':id',$id );
+
+	if($stmt->execute()){
+        echo "Success";
+    }
+    else
+    {
+        echo "Error";
+    }
+
+
+
+
+}
+
+
+
+?>
+
 <main class="content">
 				<div class="container-fluid p-0">
 
@@ -8,18 +33,32 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
+
+							<div class="card-header">
+							<form method="post"> 
+							<input type="number" class="form-control" name="id">
+								<button name="submit"  class="btn btn-primary" type="submit" id="form_submit_button" class="form_submit_button button trans_200">Save<span></span><span></span><span></span></button>
+
+								</div>	
+								</form>		
+
+							
 								<div class="card-header">
 									<h5 class="card-title mb-0">Users</h5>
 								</div>
+
+									
 								<table class="table table-hover my-0">
 									<thead>
 										<tr>
+										<th class="d-none d-md-table-cell">id</th>
+
 											<th>Username</th>
 											<th class="d-none d-xl-table-cell">Email</th>
 											<th class="d-none d-xl-table-cell">create At</th>
 											<th>Role</th>
 											<th class="d-none d-md-table-cell">Action</th>
-                                            <th class="d-none d-md-table-cell">Action</th>
+                                      
 										</tr>
 									</thead>
 									<tbody>
@@ -37,6 +76,7 @@ try {
 ?>
 
 										<tr>
+										<td><?php echo $row["id"]; ?></td>
 											<td><?php echo $row["username"]; ?></td>
 											<td class="d-none d-xl-table-cell"><?php echo $row["email"]; ?></td>
 											<td class="d-none d-xl-table-cell"><?php echo $row["create_at"]; ?></td>
@@ -59,7 +99,6 @@ try {
                                             ?>
                                        </td>
 											<td class="d-none d-md-table-cell"><a href="user-update.php?id=<?php echo $row["id"]; ?>">Update</a></td>
-                                            <td class="d-none d-md-table-cell">Delete</td>
 										</tr>
 
 
