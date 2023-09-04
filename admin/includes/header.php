@@ -1,7 +1,15 @@
 <?php
 
-session_start();
 define("APPURL","http://localhost/TravelPhpMysql");
+session_start();
+
+if(!isset($_SESSION["admin"])) {
+	echo "<script>window.location.href='".APPURL."';</script>";
+  }
+
+
+
+
 
 
 define("ASSETSIMAGE", "http://localhost/TravelPhpMysql/assets/images");

@@ -1,3 +1,76 @@
+<?php 
+
+session_start();
+define("APPURL","http://localhost/TravelPhpMysql");
+require_once($_SERVER['DOCUMENT_ROOT'].'/TravelPhpMysql/config/config.php');
+
+
+
+if(isset($_SESSION["admin"])) {
+    echo "<script>window.location.href='".APPURL."';</script>";
+  }
+
+
+if(isset($_POST['submit'])){
+
+	
+    if(empty($_POST['email']) OR empty($_POST['password'])){
+        echo "<script>alert('some inputs are empty')</script>";
+    }
+    else{
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+
+
+        $login= $conn->query("SELECT * FROM users WHERE email='$email'");
+        $login ->execute();
+
+        $fetch = $login->fetch(PDO::FETCH_ASSOC);
+
+        if($login->rowCount()> 0)
+        {
+            if(password_verify($password, $fetch['mypassword']))
+            {
+				if($fetch['admin']==1)
+				{
+					$_SESSION['admin']= $fetch['username'];
+					$_SESSION['user_id']= $fetch['id'];
+					echo "<script>window.location.href='".APPURL."/admin/dashboard.php';</script>";
+
+				}
+				else
+				{
+					echo "<script>alert('Email or password wrong')</script>";
+				}
+
+              
+
+
+            }
+            else
+            {
+                echo "<script>alert('Email or password wrong')</script>";
+            }
+
+        }
+        else
+        {
+            echo "<script>alert('Email or password wrong')</script>";
+        }
+
+
+
+
+    }
+
+
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,10 +108,10 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-3">
-									<form>
+									<form action="index.php" method="POST">
 										<div class="mb-3">
 											<label class="form-label">Email</label>
-											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+											<input class="form-control form-control-lg" type="email"  name="email" placeholder="Enter your email" />
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
@@ -46,7 +119,7 @@
 										</div>
 										
 										<div class="d-grid gap-2 mt-3">
-											<a href="index.html" class="btn btn-lg btn-primary">Sign in</a>
+										<button  name="submit" type="submit" class="btn btn-lg btn-primary"> Sign in</button>
 										</div>
 									</form>
 								</div>
