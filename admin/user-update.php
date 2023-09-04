@@ -3,6 +3,9 @@
 <?php
 
 
+
+
+
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $stmt= $conn->prepare("SELECT * FROM users WHERE `id`=:id ");
@@ -36,6 +39,36 @@ else
 }
 
 
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $id = $_GET['id'];
+    $newEmail = $_POST["newEmail"];
+    $newPassword = $_POST["newPassword"];
+    $newUsername = $_POST["newUsername"];
+    $newAdmin = $_POST["newAdmin"];
+
+    $hashPassword = password_hash($newPassword,  PASSWORD_DEFAULT);
+
+    $stmt = $conn->prepare("UPDATE  users SET `username`=:newUsername, `mypassword`=:newPassword, `email`=:newEmail,
+    `admin`=:newAdmin WHERE `id`=:id");
+    $stmt->bindParam(':newUsername',$newUsername );
+    $stmt->bindParam(':newPassword',$hashPassword );
+    $stmt->bindParam(':newEmail',$newEmail );
+    $stmt->bindParam(':newAdmin',$newAdmin );
+    $stmt->bindParam(':id',$id );
+
+    if($stmt->execute()){
+        echo "Success";
+    }
+    else
+    {
+        echo "Error";
+    }
+
+
+
+
+
+}
 
 ?>
 
@@ -47,7 +80,7 @@ else
 					<div class="row">
 						<div class="col-12 col-lg-6">
 							<div class="card">
-                                <form> 
+                                <form method="post"> 
 							
 								<div class="card-body">
 									Email <input type="text" name="newEmail" value="<?php echo $email; ?>" class="form-control" placeholder="Input">
