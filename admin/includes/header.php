@@ -112,14 +112,45 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/TravelPhpMysql/config/config.php');
 
 
 					<li class="sidebar-header">
-						Pages
+						booking
 					</li>
 
-					<li class="sidebar-item active">
-						<a class="sidebar-link" href="index.html">
-              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+					<li class="sidebar-item">
+					<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/booking-trip.php">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Booking Trip</span>
             </a>
 					</li>
+
+					<li class="sidebar-item">
+					<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/booking-active.php">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Booking active</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item">
+					<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/booking-hotel.php">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Booking hotel</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item">
+					<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/booking-cruise.php">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Booking cruise</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item">
+					<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/booking-car.php">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Booking car</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item">
+					<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/booking-flight.php">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Booking flight</span>
+            </a>
+					</li>
+
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="pages-profile.html">
