@@ -33,11 +33,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
+							<div class="card-header">
+								<p><a href="">										<button class="btn btn-info">NEW TRIP</button>
+</a> </p>
+</div>
 
 							<div class="card-header">
 							<form method="post"> 
 							<input type="number" class="form-control" name="id">
-								<button name="submit"  class="btn btn-primary" type="submit" id="form_submit_button" class="form_submit_button button trans_200">Save<span></span><span></span><span></span></button>
+<button name="submit"  class="btn btn-danger" type="submit" id="form_submit_button" class="form_submit_button button trans_200">DELETE<span></span><span></span><span></span></button>
 
 								</div>	
 								</form>		
@@ -82,7 +86,7 @@ try {
 										<tr>
 										<td><?php echo $row["id"]; ?></td>
 											<td><?php echo $row["title"]; ?></td>
-											<td class="d-none d-xl-table-cell"><?php echo $row["image"]; ?></td>
+											<td class="d-none d-xl-table-cell"><img style="width: 45px" src="<?php echo $row["image"]; ?>"> </td>
 											<td class="d-none d-xl-table-cell"><?php echo $row["price"]; ?></td>
                                             <td class="d-none d-xl-table-cell"><?php echo $row["score"]; ?></td>
                                             <td class="d-none d-xl-table-cell"><?php echo $row["user_rating"]; ?></td>
