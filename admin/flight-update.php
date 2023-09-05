@@ -6,7 +6,7 @@
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $stmt= $conn->prepare("SELECT * FROM trips WHERE `id`=:id ");
+    $stmt= $conn->prepare("SELECT * FROM flight WHERE `id`=:id ");
     $stmt->bindParam(':id',$id, PDO::PARAM_INT);
     $stmt->execute();
 
@@ -69,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if(move_uploaded_file($_FILES['image']['tmp_name'], $targetFilePath)) {
         
         
-        $insertQuery = "UPDATE `trips` SET `title`=:title,`image`=:image ,`price`= :price,
+        $insertQuery = "UPDATE `flight` SET `title`=:title,`image`=:image ,`price`= :price,
         `description`= :description,`score`= :score,`user_rating`= :user_rating,`destination`= :destination,`checking`= :checking,
         `checkout`=:checkout,`adults`=:adults,`children`= :adults WHERE  `id`=:id ";
          $stmt= $conn->prepare($insertQuery);
@@ -116,7 +116,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Trip</h1>
+					<h1 class="h3 mb-3">flight</h1>
 
 					<div class="row">
 						<div class="col-12 col-lg-6">

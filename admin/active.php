@@ -5,7 +5,7 @@
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$id = $_POST['id'];
-	$stmt = $conn->prepare("DELETE FROM trips  WHERE `id`=:id");
+	$stmt = $conn->prepare("DELETE FROM active  WHERE `id`=:id");
 	$stmt->bindParam(':id',$id );
 
 	if($stmt->execute()){
@@ -28,13 +28,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 <main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">TRIP TABLE</h1>
+					<h1 class="h3 mb-3">ACTIVE TABLE</h1>
 
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
 							<div class="card-header">
-								<p><a href="trip-add.php">										<button class="btn btn-info">NEW TRIP</button>
+								<p><a href="active-add.php">			<button class="btn btn-info">NEW ACTIVE</button>
 </a> </p>
 </div>
 
@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 							
 								<div class="card-header">
-									<h5 class="card-title mb-0">Users</h5>
+									<h5 class="card-title mb-0">Active</h5>
 								</div>
 
 									
@@ -74,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 try {
 
-    $stmt= $conn->prepare("SELECT * FROM trips");
+    $stmt= $conn->prepare("SELECT * FROM active");
     $stmt ->execute();
 
 
@@ -94,7 +94,7 @@ try {
                                             <td class="d-none d-xl-table-cell"><?php echo $row["checking"]; ?> - <?php echo $row["checkout"]; ?> </td>
                                             <td class="d-none d-xl-table-cell"><?php echo $row["adults"]; ?> -  <?php echo $row["children"]; ?> </td>
 											
-											<td class="d-none d-md-table-cell"><a href="trip-update.php?id=<?php echo $row["id"]; ?>">Update</a></td>
+											<td class="d-none d-md-table-cell"><a href="active-update.php?id=<?php echo $row["id"]; ?>">Update</a></td>
 										</tr>
 
 
