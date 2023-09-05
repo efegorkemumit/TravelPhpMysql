@@ -72,13 +72,13 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/TravelPhpMysql/config/config.php');
 					</li>
 
                     <li class="sidebar-item">
-						<a class="sidebar-link" href="index.html">
+					<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/car.php">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Car</span>
             </a>
 					</li>
 
                     <li class="sidebar-item">
-						<a class="sidebar-link" href="index.html">
+						<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/cruise.php">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Cruise</span>
             </a>
 					</li>
