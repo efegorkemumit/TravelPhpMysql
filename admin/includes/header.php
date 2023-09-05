@@ -66,7 +66,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/TravelPhpMysql/config/config.php');
             </a>
 					</li>
                     <li class="sidebar-item">
-						<a class="sidebar-link" href="index.html">
+					<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/hotel.php">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Hotels</span>
             </a>
 					</li>
