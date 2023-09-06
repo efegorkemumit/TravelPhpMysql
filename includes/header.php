@@ -5,7 +5,7 @@ define("APPURL","http://localhost/TravelPhpMysql");
 
 
 define("ASSETSIMAGE", "http://localhost/TravelPhpMysql/assets/images");
-define("DBIMAGE", "http://localhost/TravelPhpMysql/assets/images");
+define("DBIMAGE", "http://localhost/TravelPhpMysql/admin");
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/TravelPhpMysql/config/config.php');
 
@@ -106,9 +106,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/TravelPhpMysql/config/config.php');
 							<ul class="main_nav_list">
 								<li class="main_nav_item"><a href="<?php echo APPURL;?>">home</a></li>
 								<li class="main_nav_item"><a href="<?php echo APPURL;?>/about-us.php">about us</a></li>
-								<li class="main_nav_item"><a href="<?php echo APPURL;?>/search_results_hotel.php">offers</a></li>
+								<li class="main_nav_item"><a href="<?php echo APPURL;?>/offer.php">offers</a></li>
 								<li class="main_nav_item"><a href="<?php echo APPURL;?>/blog.php">news</a></li>
-								<li class="main_nav_item"><a href="contact.html">contact</a></li>
+								<li class="main_nav_item"><a href="<?php echo APPURL;?>/contact.php">contact</a></li>
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">

@@ -56,7 +56,7 @@
 
 							<!-- Footer blog item -->
 							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="<?php echo APPURL; ?>/<?php echo $row['image']; ?>" alt="https://unsplash.com/@avidenov"></div>
+								<div class="footer_blog_image"><img src="<?php echo DBIMAGE; ?>/<?php echo $row['image']; ?>" alt="https://unsplash.com/@avidenov"></div>
 								<div class="footer_blog_content">
 									<div class="footer_blog_title"><a href="blog.html"><?php echo $row['title']; ?></a></div>
 									<div class="footer_blog_date"><?php echo $row['create_at']; ?></div>

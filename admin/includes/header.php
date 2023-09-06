@@ -60,11 +60,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/TravelPhpMysql/config/config.php');
 						Pages
 					</li>
 
-                    <li class="sidebar-item">
-						<a class="sidebar-link" href="index.html">
-              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
-            </a>
-					</li>
+                   
                     <li class="sidebar-item">
 					<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/hotel.php">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Hotels</span>
@@ -184,6 +180,11 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/TravelPhpMysql/config/config.php');
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/blog.php">
               <i class="align-middle" data-feather="map"></i> <span class="align-middle">blog</span>
+            </a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="<?php echo APPURLADMIN ?>/about.php">
+              <i class="align-middle" data-feather="map"></i> <span class="align-middle">About</span>
             </a>
 					</li>
 				</ul>

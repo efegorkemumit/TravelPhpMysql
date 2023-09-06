@@ -21,7 +21,10 @@
 								</div>		
 							</div>
 
-							<!-- Search Panel -->
+							<?php 
+							
+							$nextMonthLastDay = date('Y-m-t', strtotime('+1 month'));
+							?>
 
 							<div class="search_panel active">
 							<form action="<?php echo APPURL;?>/search_results_hotel.php" method="GET" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
@@ -31,11 +34,11 @@
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD" value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -109,11 +112,11 @@
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD" value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -145,11 +148,11 @@
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD" value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -181,11 +184,11 @@
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD" value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -217,11 +220,11 @@
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD" value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -253,11 +256,11 @@
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD" value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>

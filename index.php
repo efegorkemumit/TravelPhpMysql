@@ -129,6 +129,12 @@ if($result->rowCount()>0){
 						</div>		
 					</div>
 
+					<?php 
+							
+							$nextMonthLastDay = date('Y-m-t', strtotime('+1 month'));
+							?>
+
+
 					<!-- Search Panel -->
 
 					<div class="search_panel active">
@@ -139,11 +145,11 @@ if($result->rowCount()>0){
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD"  value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -175,11 +181,11 @@ if($result->rowCount()>0){
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD"  value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -211,11 +217,11 @@ if($result->rowCount()>0){
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD"  value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -247,11 +253,11 @@ if($result->rowCount()>0){
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD"  value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -283,11 +289,11 @@ if($result->rowCount()>0){
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD"  value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -319,11 +325,11 @@ if($result->rowCount()>0){
 							</div>
 							<div class="search_item">
 								<div>check in</div>
-								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD">
+								<input type="date" name="check_in" class="check_in search_input" placeholder="YYYY-MM-DD"  value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							<div class="search_item">
 								<div>check out</div>
-								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD">
+								<input type="date"  name="check_out" class="check_out search_input" placeholder="YYYY-MM-DD" value="<?php echo $nextMonthLastDay; ?>">
 							</div>
 							<div class="search_item">
 								<div>adults</div>
@@ -392,7 +398,7 @@ if($result->rowCount()>0){
 </div>
 							<div class="button intro_button"><div class="button_bcg"></div><a href="<?php echo APPURL;?>/detail/trips.php?id=<?php echo $row['id'] ?>">see more<span></span><span></span><span></span></a></div>
 							<div class="intro_center text-center">
-								<h1><?php echo $row['title']; ?> </h1>
+								<h1><?php echo $row['destination']; ?> </h1>
 								<div class="intro_price">From $<?php echo $row['price']; ?> </div>
 								<div class="rating rating_<?php echo $row['score']; ?> ">
 									<i class="fa fa-star"></i>
