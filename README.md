@@ -50,7 +50,7 @@ Happy learning!
 
 
 <a href="https://www.udemy.com/course/sfrdan-uygulamal-frontend-egitimi-html-tailwindcss-js/" rel="nofollow">
-<img src="https://efegorkemumit.github.io/assets/img/course/course/5.jpg" data-canonical-src="https://img.shields.io/badge/TikTok-000000?style=for-the-badge&amp;logo=tiktok&amp;logoColor=white style=" style="max-width: 100%;">
+<img src="https://efegorkemumit.github.io/assets/img/course/course/7.jpg" data-canonical-src="https://img.shields.io/badge/TikTok-000000?style=for-the-badge&amp;logo=tiktok&amp;logoColor=white style=" style="max-width: 100%;">
 </a>
 
 
